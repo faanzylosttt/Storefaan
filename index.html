@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lubz - Official</title>
+  <link rel="stylesheet" href="public/cts2.css">
+</head>
+<body>
+  <div class="container">
+<!-- Rules Section - Dengan Animasi Slide -->
+<div class="rules-section" id="rulesSection">
+    <div class="rules-header" onclick="toggleRules()">
+      <div class="rules-icon">📜</div>
+      <h2 class="rules-title">Syarat & Ketentuan  Pterodactyl</h2>
+      <span id="rulesToggleIcon" style="margin-left: auto; font-size: 20px;">▼</span>
+    </div>
+
+    <div id="rulesContent" class="rules-content">
+      <ul class="rules-list">
+        <li>Simpan data akun panel sebaik mungkin .</li>
+        <li>Akun panel hanya boleh digunakan oleh pemilik terdaftar.</li>
+        <li>Dilarang menyalahgunakan resource server (misal: spam bot, mining, dll).</li>
+        <li>Garansi 10 day dari awal pembelian (1x replace).</li>
+        <li>Claim garansi wajib membawa bukti tf.</li>
+        <li>Dilarang menyebarkan link Panel ke public.</li>
+      </ul>
+
+      <div class="rules-note">
+        ⚠️ Melanggar peraturan di atas dapat menyebabkan penangguhan akun tanpa pengembalian dana.
+      </div>
+
+      <div class="rules-footer">
+        <button class="rules-accept" onclick="acceptRules()">Saya Setuju</button>
+      </div>
+    </div>
+  </div>
+<!-- Welcome Screen untuk Dashboard Produk Panel Pterodactyl Biasa -->
+<div class="welcome-screen" id="welcomeScreen">
+    <div class="floating-elements">
+      <div class="floating-element" style="width: 30px; height: 30px; top: 20%; left: 10%;"></div>
+      <div class="floating-element" style="width: 20px; height: 20px; top: 30%; left: 60%;"></div>
+      <div class="floating-element" style="width: 15px; height: 15px; top: 70%; left: 80%;"></div>
+      <div class="floating-element" style="width: 25px; height: 25px; top: 80%; left: 20%;"></div>
+      <div class="floating-element" style="width: 10px; height: 10px; top: 40%; left: 30%;"></div>
+    </div>
+
+    <div class="welcome-logo">🖥️</div>
+    <h1 class="welcome-title">Lubz Official Mods</h1>
+    <p class="welcome-subtitle">Lubz Official Mods menyediakan berbagai macam varian ram panel belanja di website Lubz Official Mods lebih mudah dan cepat di proses otomatis .</p>
+    <button class="buy-btn" onclick="showProductSection()" style="
+  background: linear-gradient(to right, #1861a1, #1861a1);
+  color: #333;
+  border: none;
+  padding: 18px 40px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(64, 0, 255, 0.3);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  -webkit-tap-highlight-color: transparent;
+">
+      LIHAT PRODUK
+    </button>
+  </div>
+<!-- Product Selection Section (Initially Hidden) -->
+<div class="product-section" id="productSection">
+  <div style="display: flex; justify-content: center; gap: 10px;">
+    <button class="back-btn" onclick="window.location.href='https://wa.me/6282189474878'">
+      <span>📞</span> Admin cs
+  </button>
+  <button class="back-btn" onclick="window.location.href='https://youtube.com/@lubyzofficial?si=UogMq85V1bWjyECy'">
+    <span>🔴</span> Youtube
+  </button>
+  </div>
+
+  <h2>✨ Pilih Paket Panel ✨</h2>
+
+  <div class="products">
+    <div class="product-card" onclick="selectProduct(this, 'basic', 1000)">
+      <div class="product-name">Panel Pterodactyl</div>
+      <div class="product-price">Rp 1.000</div>
+      <div class="product-specs">
+        <ul>
+          <li><span class="feature-emoji">⏱️</span> Masa aktif sampai website mokad</li>
+          <li><span class="feature-emoji">🛠️</span> Basic Support</li>
+          <li><span class="feature-emoji">💾</span> RAM: 1000 MB</li>
+          <li><span class="feature-emoji">📦</span> Disk: 1000 MB</li>
+          <li><span class="feature-emoji">⚙️</span> CPU: 30%</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="product-card" onclick="selectProduct(this, 'premium', 2000)">
+      <div class="product-name">Panel Pterodactyl</div>
+      <div class="product-price">Rp 2.000</div>
+      <div class="product-specs">
+        <ul>
+          <li><span class="feature-emoji">⏱️</span> Masa aktif sampai website mokad</li>
+          <li><span class="feature-emoji">💾</span> RAM: 2000 MB</li>
+          <li><span class="feature-emoji">📦</span> Disk: 2000 MB</li>
+          <li><span class="feature-emoji">⚙️</span> CPU: 50%</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="product-card" onclick="selectProduct(this, 'business', 3000)">
+      <div class="product-name">Panel Pterodactyl</div>
+      <div class="product-price">Rp 3.000</div>
+      <div class="product-specs">
+        <ul>
+          <li><span class="feature-emoji">⏱️</span> Masa aktif sampai website mokad</li>
+          <li><span class="feature-emoji">💾</span> RAM: 3000 MB</li>
+          <li><span class="feature-emoji">📦</span> Disk: 3000 MB</li>
+          <li><span class="feature-emoji">⚙️</span> CPU: 60%</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="products">
+    <div class="product-card" onclick="selectProduct(this, 'business', 4000)">
+      <div class="product-name">Panel Pterodactyl</div>
+      <div class="product-price">Rp 4.000</div>
+      <div class="product-specs">
+        <ul>
+          <li><span class="feature-emoji">⏱️</span> Masa aktif sampai website mokad</li>
+          <li><span class="feature-emoji">💾</span> RAM: 4000 MB</li>
+          <li><span class="feature-emoji">📦</span> Disk: 4000 MB</li>
+          <li><span class="feature-emoji">⚙️</span> CPU: 70%</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="product-card" onclick="selectProduct(this, 'pakethost', 5000)">
+      <div class="product-name">Panel Pterodactyl</div>
+      <div class="product-price">Rp 5.000</div>
+      <div class="product-specs">
+        <ul>
+          <li><span class="feature-emoji">⏱️</span> Masa aktif sampai website mokad</li>
+          <li><span class="feature-emoji">💾</span> RAM: 5000 MB</li>
+          <li><span class="feature-emoji">📦</span> Disk: 5000 MB</li>
+          <li><span class="feature-emoji">⚙️</span> CPU: 80%</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="product-card" onclick="selectProduct(this, 'pakethost1', 6000)">
+      <div class="product-name">Panel Pterodactyl</div>
+      <div class="product-price">Rp 6.000</div>
+      <div class="product-specs">
+        <ul>
+          <li><span class="feature-emoji">⏱️</span> Masa aktif sampai website mokad</li>
+          <li><span class="feature-emoji">💾</span> RAM: 6000 MB</li>
+          <li><span class="feature-emoji">📦</span> Disk: 6000 MB</li>
+          <li><span class="feature-emoji">⚙️</span> CPU: 100%</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="products">
+    <div class="product-card" onclick="selectProduct(this, 'pakethost2', 7000)">
+      <div class="product-name">Panel Pterodactyl</div>
+      <div class="product-price">Rp 7.000</div>
+      <div class="product-specs">
+        <ul>
+          <li><span class="feature-emoji">⏱️</span> Masa aktif sampai website mokad</li>
+          <li><span class="feature-emoji">💾</span> RAM: 7000 MB</li>
+          <li><span class="feature-emoji">📦</span> Disk: 7000 MB</li>
+          <li><span class="feature-emoji">⚙️</span> CPU: 120%</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="product-card" onclick="selectProduct(this, 'pakethost3', 8000)">
+      <div class="product-name">Panel Pterodactyl</div>
+      <div class="product-price">Rp 8.000</div>
+      <div class="product-specs">
+        <ul>
+          <li><span class="feature-emoji">⏱️</span> Masa aktif sampai website mokad</li>
+          <li><span class="feature-emoji">💾</span> RAM: 8000 MB</li>
+          <li><span class="feature-emoji">📦</span> Disk: 8000 MB</li>
+          <li><span class="feature-emoji">⚙️</span> CPU: 150%</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="product-card" onclick="selectProduct(this, 'pakethost4', 9000)">
+      <div class="product-name">Panel Pterodactyl</div>
+      <div class="product-price">Rp 9.000</div>
+      <div class="product-specs">
+        <ul>
+          <li><span class="feature-emoji">⏱️</span> Masa aktif sampai website mokad</li>
+          <li><span class="feature-emoji">💾</span> RAM: 9000 MB</li>
+          <li><span class="feature-emoji">📦</span> Disk: 9000 MB</li>
+          <li><span class="feature-emoji">⚙️</span> CPU: 170%</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-card" onclick="selectProduct(this, 'pakethost5', 8000)">
+    <div class="product-name">Panel Pterodactyl</div>
+    <div class="product-price">Rp 8.000</div>
+    <div class="product-specs">
+      <ul>
+        <li><span class="feature-emoji">⏱️</span> Masa aktif sampai website mokad</li>
+        <li><span class="feature-emoji">💾</span> RAM: Unlimited</li>
+        <li><span class="feature-emoji">📦</span> Disk: Unlimited</li>
+        <li><span class="feature-emoji">⚙️</span> CPU: Unlimited</li>
+      </ul>
+    </div>
+  </div>
+</div>
+  <button id="continueToPayment" onclick="showPaymentForm()" style="display:none;">
+    Lanjutkan ke Pembayaran ➡️
+  </button>
+</div>
+
+  <!-- Payment Form (Initially Hidden) -->
+  <div class="payment-form" id="paymentForm">
+    <button class="back-btn" onclick="backToProductSection()">← Kembali</button>
+    <h2>🛒 Checkout - QRIS Payment</h2>
+
+    <div id="orderSummary">
+      <h3>Ringkasan Order</h3>
+      <p><strong>Paket:</strong> <span id="summaryPackage"></span></p>
+      <p><strong>Harga:</strong> Rp <span id="summaryPrice"></span></p>
+    </div>
+
+    <label for="email">Email (untuk menerima akun):</label>
+    <input type="email" id="email" placeholder="email@example.com" required>
+
+    <label for="payment-method">Metode Pembayaran:</label>
+    <select id="payment-method">
+      <option value="qris">QRIS (QR Code)</option>
+    </select>
+
+<!-- Tombol untuk memulai pembayaran -->
+<button id="startButton" onclick="startPayment()">Konfirmasi Bayaran anda</button>
+
+<!-- Tombol Cancel -->
+<button id="cancelButton" style="display:none" onclick="cancelPayment()">Cancel</button>
+
+    <div id="loading" class="loading" style="display:none">
+      <div class="spinner"></div>
+      <p>Membuat pembayaran...</p>
+    </div>
+    <div id="info" style="display: none; padding: 20px; background: linear-gradient(135deg, #1f2937, #111827); border-radius: 12px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); color: #f9fafb; font-family: 'Poppins', sans-serif; font-size: 14px;">
+
+      <div style="display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <strong>ID Pembayaran:</strong> <span id="idPembayaran"></span>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <strong>Transaction ID:</strong> <span id="trxId"></span>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <strong>Total Pembayaran:</strong> <span>Rp</span><span id="total"></span>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <strong>Expired:</strong> <span id="expired"></span>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <strong>Note:</strong>  <span>Sebelum Kembali Silahkan Cancel Terlebih Dahulu Terimakasih</span>
+      </div> 
+
+      <p><strong>QRIS Code:</strong></p>
+      <img id="qrImage" class="qr-image" src="" alt="QR Code">
+      <p><strong>URL Gambar QR Code:</strong></p>
+      <div class="url-box" id="qrImageUrl"></div>
+      <div class="copy-btn" onclick="copyQrUrl()">Salin URL Gambar QR</div>
+    </div>
+    <div id="status" style="display: none; text-align: center; font-size: 16px; color: #f9fafb; margin-bottom: 15px;"></div>
+    <button id="startButton" onclick="checkStatusNow()" style="background: #1556c5; color: #000000; font-weight: bold; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; transition: background 0.3s;">
+      🔍 Cek Status Manual
+    </button>
+  </div>
+<!-- Remove this block from the payment form -->
+<!-- 
+<div class="payment-method-toggle" style="margin: 15px 0;">
+  <label class="toggle-container">
+    <input type="checkbox" id="manualTransferToggle" onchange="toggleManualTransfer()">
+    <span class="toggle-text">BERIKAN BUKTI TRANSFER KETIKA SUDAH SUKSES</span>
+  </label>
+</div>
+-->
+
+<!-- Add the manual payment section to the success message instead -->
+<!-- Modify the success message div to include the upload form -->
+<div class="success-message" id="successMessage">
+  <div class="success-container">
+    <div class="success-header">
+      <div class="success-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M8 12l2 2 4-4"></path>
+        </svg>
+      </div>
+      <h2>Pembayaran Berhasil!</h2>
+      <p class="subtitle">Akun Panel Pterodactyl Anda telah dibuat dan siap digunakan</p>
+    </div>
+
+    <div class="account-card">
+      <div class="account-header">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+          <path d="M7 8h10"></path>
+          <path d="M7 12h10"></path>
+          <path d="M7 16h5"></path>
+        </svg>
+        <h3>Data Akun Panel</h3>
+      </div>
+
+      <div class="account-details">
+        <div class="detail-row">
+          <div class="detail-label">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span>Username:</span>
+          </div>
+          <div class="detail-value" id="accountUsername"></div>
+        </div>
+
+        <div class="detail-row">
+          <div class="detail-label">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <span>Password:</span>
+          </div>
+          <div class="detail-value" id="accountPassword"></div>
+        </div>
+
+        <div class="detail-row">
+          <div class="detail-label">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+            <span>Panel URL:</span>
+          </div>
+          <div class="detail-value" id="panelUrl"></div>
+        </div>
+      </div>
+
+      <button class="copy-btn" onclick="copyAccountInfo()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+        <span>Salin Info Akun</span>
+      </button>
+    </div>
+
+    <div class="email-notice">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+        <polyline points="22,6 12,13 2,6"></polyline>
+      </svg>
+      <p>Informasi akun telah dikirim ke email Anda</p>
+    </div>
+
+    <!-- Add the upload proof of transfer section here -->
+    <div class="manual-payment-section" style="margin-top: 30px; margin-bottom: 30px;">
+      <h3>Upload Bukti Transfer</h3>
+      <p>Silakan upload bukti transfer pembayaran Anda di bawah ini:</p>
+
+      <div class="upload-container">
+        <div class="upload-area" id="uploadArea">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+          <p>Tarik dan letakkan foto bukti pembayaran atau</p>
+          <label for="proofUpload" class="upload-btn">Pilih File</label>
+          <input type="file" id="proofUpload" accept="image/*" style="display:none;" onchange="handleFileSelect(event)">
+        </div>
+        <div id="previewArea" class="preview-area" style="display:none;">
+          <img id="previewImage" src="" alt="Preview bukti pembayaran">
+          <div class="preview-actions">
+            <button class="preview-remove" onclick="removePreview()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+              Hapus
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="senderName">Nama Pengirim:</label>
+        <input type="text" id="senderName" placeholder="Masukkan nama pengirim">
+      </div>
+
+      <div class="form-group">
+        <label for="senderBank">Bank/Metode Pembayaran:</label>
+        <input type="text" id="senderBank" placeholder="Contoh: BCA, DANA, OVO, dll">
+      </div>
+
+      <div class="form-group">
+        <label for="transferNotes">Catatan Tambahan (opsional):</label>
+        <textarea id="transferNotes" placeholder="Tambahkan keterangan jika ada..."></textarea>
+      </div>
+
+      <button id="submitProofBtn" onclick="submitPaymentProof()" class="submit-proof-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+        Kirim Bukti Pembayaran
+      </button>
+
+      <div id="uploadStatus" class="upload-status" style="display:none;"></div>
+    </div>
+
+    <div class="terms-section">
+      <h4>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        Syarat & Ketentuan:
+      </h4>
+      <ul>
+        <li>Expired sesuai paket yang dipilih</li>
+        <li>Simpan data ini sebaik mungkin</li>
+        <li>Jangan asal otak atik server!</li>
+        <li>Ketahuan maling sc, auto delete akun no reff!</li>
+      </ul>
+    </div>
+
+    <button onclick="backToWelcome()" class="return-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      Kembali ke Menu Utama
+    </button>
+  </div>
+</div>
+</div>
+<!-- Add this button somewhere in your payment form -->
+<script src="./public/cts2.js"></script>
+</body>
+  </html>
