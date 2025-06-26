@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tex4su - Store</title>
+  <link rel="stylesheet" href="public/cjs.css">
+</head>
+<body>
+<!-- Rules Section - Complete Redesign -->
+<div class="container">
+<div class="rules-section">
+  <div class="rules-header" onclick="toggleRules()" style="cursor: pointer;">
+    <div class="rules-icon" style="font-size: 32px;">📜</div>
+    <h2 class="rules-title" style="margin: 0; font-size: 24px;">Peraturan Admin Panel</h2>
+  </div>
+
+  <div id="rulesContent" class="rules-content">
+    <ul class="rules-list">
+      <li>Dilarang menyalahgunakan panel admin untuk aktivitas ilegal atau merugikan pengguna lain</li>
+      <li>Akses panel admin hanya untuk pemilik yang sah dan tidak boleh dibagikan kepada orang lain <span class="important-badge" style="color: red; font-weight: bold;">Penting</span></li>
+      <li>Dilarang melakukan modifikasi pada sistem panel tanpa izin dari administrator pusat</li>
+      <li>Perubahan pengaturan server harus dilakukan sesuai dengan dokumentasi resmi</li>
+      <li>Backup data server harus dilakukan secara berkala untuk menghindari kehilangan data</li>
+      <li>Pengguna bertanggung jawab penuh terhadap semua tindakan yang dilakukan menggunakan akses panel admin</li>
+    </ul>
+
+    <div class="rules-note" style="margin-top: 10px; font-style: italic; color: #e74c3c;">
+      ⚠️ Melanggar peraturan di atas dapat mengakibatkan pencabutan akses panel admin tanpa pengembalian dana.
+    </div>
+  </div>
+</div>
+
+
+<!-- Enhanced Welcome Screen with Animation -->
+<div class="welcome-screen" id="welcomeScreen">
+  <div class="floating-elements">
+    <div class="floating-element" style="width: 30px; height: 30px; top: 20%; left: 10%;"></div>
+    <div class="floating-element" style="width: 20px; height: 20px; top: 30%; left: 60%;"></div>
+    <div class="floating-element" style="width: 15px; height: 15px; top: 70%; left: 80%;"></div>
+    <div class="floating-element" style="width: 25px; height: 25px; top: 80%; left: 20%;"></div>
+    <div class="floating-element" style="width: 10px; height: 10px; top: 40%; left: 30%;"></div>
+  </div>
+
+  <div class="welcome-logo">🚀</div>
+  <h1 class="welcome-title">Pterodactyl Admin Panel</h1>
+  <p class="welcome-subtitle">Beli akses admin panel untuk mengelola server game dengan mudah dan dapatkan fitur premium untuk pengalaman terbaik</p>
+  <button class="buy-btn" onclick="showProductSection()" style="
+  background: linear-gradient(to right, #1861a1, #1861a1);
+  color: #333;
+  border: none;
+  padding: 18px 40px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(64, 0, 255, 0.3);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  -webkit-tap-highlight-color: transparent;
+">
+  BELI SEKARANG
+</button>
+</div>
+<!-- Product Selection Section (Initially Hidden) -->
+<div class="product-section" id="productSection">
+
+  <h2 style="text-align: center; font-size: 36px; font-weight: bold; margin-top: -20px; color: #ffcc00; text-shadow: 0 2px 8px rgba(255, 204, 0, 0.7);">
+    ✨ PRODUK ADMIN PANEL ✨
+  </h2>
+
+  <div style="display: flex; justify-content: center; gap: 10px;">
+    <button class="back-btn" onclick="backToWelcome()">
+      <span>⬅️</span> Kembali
+    </button>
+    <button class="back-btn" onclick="window.location.href='/pterodactyl'">
+      <span>🛍</span> Panel Pterodactyl
+    </button>
+  </div>
+  <button id="continueToPayment" onclick="showPaymentForm()" style="display:none;">
+    Lanjutkan ke Pembayaran ➡️
+  </button>
+</div>
+
+  <!-- Payment Form (Initially Hidden) -->
+  <div class="payment-form" id="paymentForm">
+    <button class="back-btn" onclick="backToProductSection()">← Kembali</button>
+    <h2>🛒 Checkout - QRIS Payment</h2>
+
+    <div id="orderSummary">
+      <h3>Ringkasan Order</h3>
+      <p><strong>Paket:</strong> <span id="summaryPackage"></span></p>
+      <p><strong>Harga:</strong> Rp <span id="summaryPrice"></span></p>
+    </div>
+
+    <label for="email">Email (untuk menerima akun):</label>
+    <input type="email" id="email" placeholder="email@example.com" required>
+
+    <label for="payment-method">Metode Pembayaran:</label>
+    <select id="payment-method">
+      <option value="qris">QRIS (QR Code)</option>
+    </select>
+
+<!-- Tombol untuk memulai pembayaran -->
+<button id="startButton" onclick="startPayment()">Konfirmasi Bayaran anda</button>
+
+<!-- Tombol Cancel -->
+<button id="cancelButton" style="display:none" onclick="cancelPayment()">Cancel Bayaran Anda</button>
+
+    <div id="loading" class="loading" style="display:none">
+      <div class="spinner"></div>
+      <p>Membuat pembayaran...</p>
+    </div>
+    <div id="info" style="display: none; padding: 20px; background: linear-gradient(135deg, #1f2937, #111827); border-radius: 12px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); color: #f9fafb; font-family: 'Poppins', sans-serif; font-size: 14px;">
+
+      <div style="display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <strong>ID Pembayaran:</strong> <span id="idPembayaran"></span>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <strong>Transaction ID:</strong> <span id="trxId"></span>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <strong>Total Pembayaran:</strong> <span>Rp</span><span id="total"></span>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <strong>Expired:</strong> <span id="expired"></span>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <strong>Note: Jika Mau Pesanan anda cancel langsung pilih produk lagi biar gak eror, dan jangan sampai ketika sudah di transfer biar gk ke reset</strong>
+      </div>
+
+      <p><strong>QRIS Code:</strong></p>
+      <img id="qrImage" class="qr-image" src="" alt="QR Code">
+      <p><strong>URL Gambar QR Code:</strong></p>
+      <div class="url-box" id="qrImageUrl"></div>
+      <div class="copy-btn" onclick="copyQrUrl()">Salin URL Gambar QR</div>
+    </div>
+    <div id="status" style="display: none; text-align: center; font-size: 16px; color: #f9fafb; margin-bottom: 15px;"></div>
+    <button id="startButton"onclick="checkStatusNow()" style="background: #1556c5; color: #000000; font-weight: bold; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; transition: background 0.3s;">
+      🔍 Cek Status Manual
+    </button>
+  </div>
+<!-- Success Message Section with Transaction Proof Upload -->
+<div class="success-message" id="successMessage">
+  <div class="success-icon">✅</div>
+  <h2>Pembayaran Berhasil!</h2>
+  <p>Akun admin panel Anda telah dibuat</p>
+  <div id="accountInfo" style="background: rgba(0,0,0,0.1); padding: 20px; border-radius: 10px; text-align: left; margin: 20px 0;">
+    <h3>Data Akun Admin Panel 📦</h3>
+    <p><strong>👤 Username:</strong> <span id="accountUsername"></span></p>
+    <p><strong>🔐 Password:</strong> <span id="accountPassword"></span></p>
+    <p><strong>🌐 Panel URL:</strong> <span id="panelUrl"></span></p>
+    <div class="copy-btn" onclick="copyAccountInfo()">Salin Info Akun</div>
+  </div>
+
+  <!-- Transaction Proof Upload Section -->
+  <div id="proofUploadSection" style="background: rgba(0,30,60,0.2); padding: 20px; border-radius: 10px; margin: 20px 0; text-align: left;">
+    <h3>🧾 Upload Bukti Pembayaran</h3>
+    <p>Unggah bukti transaksi untuk verifikasi dan dukungan lebih lanjut</p>
+
+    <div id="proofUploadForm">
+      <div style="margin-bottom: 15px;">
+        <label for="contactInfo"><strong>Username Telegram / No. WhatsApp:</strong></label>
+        <input type="text" id="contactInfo" placeholder="@username_telegram / 08123456789" required
+               style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #3b82f6; background: rgba(30,58,138,0.1); color: #f9fafb;">
+      </div>
+
+      <div style="margin-bottom: 15px;">
+        <label for="paymentMethod"><strong>Metode Pembayaran:</strong></label>
+        <select id="paymentMethod" required
+                style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #3b82f6; background: rgba(30,58,138,0.1); color: #f9fafb;">
+          <option value="">Pilih Metode Pembayaran</option>
+          <option value="QRIS">QRIS</option>
+          <option value="Bank Transfer">Transfer Bank</option>
+          <option value="E-Wallet">E-Wallet (OVO/Dana/GoPay)</option>
+          <option value="Pulsa">Pulsa</option>
+          <option value="Other">Lainnya</option>
+        </select>
+      </div>
+
+      <div style="margin-bottom: 15px;" id="otherMethodContainer" style="display: none;">
+        <label for="otherMethod"><strong>Metode Pembayaran Lainnya:</strong></label>
+        <input type="text" id="otherMethod" placeholder="Sebutkan metode pembayaran..."
+               style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #3b82f6; background: rgba(30,58,138,0.1); color: #f9fafb;">
+      </div>
+
+      <div style="margin-bottom: 15px;">
+        <label for="description"><strong>Deskripsi (opsional):</strong></label>
+        <textarea id="description" placeholder="Keterangan tambahan tentang pembayaran..." rows="3"
+                  style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #3b82f6; background: rgba(30,58,138,0.1); color: #f9fafb; resize: vertical;"></textarea>
+      </div>
+
+      <div style="margin-bottom: 15px;">
+        <label for="proofImage"><strong>Bukti Transaksi:</strong></label>
+        <input type="file" id="proofImage" accept="image/*" required
+               style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #3b82f6; background: rgba(30,58,138,0.1); color: #f9fafb;">
+        <div id="imagePreview" style="margin-top: 10px; max-width: 300px; display: none;">
+          <img id="previewImg" src="" alt="Preview" style="width: 100%; border-radius: 8px;">
+        </div>
+      </div>
+
+      <div style="margin-bottom: 15px;">
+        <label><strong>Detail Produk:</strong></label>
+        <div id="productDetails" style="background: rgba(30,58,138,0.15); padding: 12px; border-radius: 8px; margin-top: 5px;">
+          <p><strong>Nama Produk:</strong> <span id="productName"></span></p>
+          <p><strong>Total Bayar:</strong> Rp <span id="productPrice"></span></p>
+          <p><strong>Tanggal Transaksi:</strong> <span id="transactionDate"></span></p>
+          <p><strong>ID Transaksi:</strong> <span id="displayTrxId"></span></p>
+        </div>
+      </div>
+
+      <button id="submitProofBtn" onclick="submitProofToTelegram()"
+              style="background: linear-gradient(to right, #3b82f6, #2563eb); color: white; font-weight: bold; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; transition: all 0.3s;">
+        📤 Kirim Bukti Transaksi
+      </button>
+    </div>
+
+    <div id="uploadStatus" style="margin-top: 15px; padding: 10px; border-radius: 8px; display: none;"></div>
+  </div>
+
+  <p>Informasi akun telah dikirim ke email Anda</p>
+  <p><strong>Syarat & Ketentuan:</strong></p>
+  <ul style="text-align: left; padding-left: 20px;">
+    <li>Expired sesuai paket yang dipilih</li>
+    <li>Simpan data ini sebaik mungkin</li>
+    <li>Jangan asal hapus server!</li>
+    <li>Dilarang menyebarkan data atau link panel!</li>
+  </ul>
+  <button onclick="backToWelcome()" class="buy-btn">Kembali ke Menu Utama</button>
+</div>
+<!-- Add this button somewhere in your payment form -->
+<script src="./public/cjs.js"></script>
+</body>
+</html>
