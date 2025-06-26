@@ -1,0 +1,964 @@
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: url('https://files.catbox.moe/sxom36.jpeg') no-repeat center center fixed;
+  background-size: 300% 300%;
+  animation: gradient 15s ease infinite;
+  color: #fff;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 950px;
+  margin: 30px auto;
+  padding: 25px;
+  background-color: rgba(15, 23, 42, 0.85);
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+
+}
+/* Animations Welcome */
+@keyframes slideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes floatLogo {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+
+  @keyframes shadowPulse {
+    0%, 100% {
+      opacity: 0.4;
+      transform: translateX(-50%) scale(1);
+    }
+    50% {
+      opacity: 0.2;
+      transform: translateX(-50%) scale(0.8);
+    }
+  }
+
+  @keyframes rainbow {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 400% 50%;
+    }
+  }
+
+  @keyframes shine {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+
+  @keyframes float {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate(250px, -250px) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .welcome-title {
+      font-size: 28px;
+    }
+    .welcome-subtitle {
+      font-size: 18px;
+    }
+    .welcome-logo {
+      font-size: 60px;
+    }
+    .buy-btn {
+      padding: 15px 30px;
+      font-size: 18px;
+    }
+  }
+
+/* Welcome screen with enhanced animation and design */
+.welcome-screen {
+    text-align: center;
+    animation: slideUp 1.2s ease-out;
+    padding: 50px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+    background: linear-gradient(135deg, #1a2a3a00 0%, #0d1b2a00 100%);
+    color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0);
+    position: relative;
+    overflow: hidden;
+  }
+
+
+  .welcome-logo {
+    font-size: 80px;
+    margin-bottom: 35px;
+    animation: floatLogo 3s ease-in-out infinite;
+    text-shadow: 0 0 15px rgba(255, 204, 0, 0.7);
+    position: relative;
+  }
+
+  .welcome-logo::after {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 20px;
+    background: radial-gradient(ellipse at center, rgba(255,204,0,0.4) 0%, rgba(255,204,0,0) 70%);
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    animation: shadowPulse 3s ease-in-out infinite;
+  }
+
+  .welcome-title {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 25px;
+    background: linear-gradient(to right, #ffffff, #ffcc00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 1px;
+  }
+
+  .welcome-subtitle {
+    font-size: 20px;
+    margin-bottom: 50px;
+    opacity: 0.9;
+    max-width: 600px;
+    line-height: 1.6;
+    position: relative;
+  }
+
+  .welcome-subtitle::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #ffcc00;
+    margin: 25px auto 0;
+    border-radius: 2px;
+  }
+
+  .buy-btn {
+    background: linear-gradient(to right, #1861a1, #1861a1);
+    color: #333;
+    border: none;
+    padding: 18px 40px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent; /* Ini buat hilangin warna kuning saat klik */
+    box-shadow: 0 10px 20px rgba(64, 0, 255, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .buy-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 25px rgba(16, 71, 221, 0.4);
+  }
+
+  .buy-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 5px 10px rgba(64, 0, 255, 0.2);
+  }
+
+  .buy-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: 0.5s;
+  }
+
+  .buy-btn:hover::before {
+    left: 100%;
+    animation: shine 1.5s;
+  }
+
+  .floating-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .floating-element {
+    position: absolute;
+    background: rgba(255,204,0,0.1);
+    border-radius: 50%;
+    animation: float 10s infinite linear;
+  }
+
+
+/* Payment form styles */
+.payment-form {
+  display: none;
+  animation: fadeIn 0.5s ease-out;
+}
+
+input, button, select {
+  padding: 12px;
+  margin: 10px 0;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  background: #ffcc00;
+  color: #333;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #ffd633;
+  transform: translateY(-2px);
+}
+
+#info, #status {
+  background: rgba(255, 255, 255, 0);
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0);
+  color: #ffffff;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.copy-btn {
+  background: #4CAF50;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  text-align: center;
+  transition: background 0.3s ease;
+}
+
+.copy-btn:hover {
+  background: #45a049;
+}
+
+.success { color: green; font-weight: bold; }
+.expired { color: red; font-weight: bold; }
+
+.loading {
+  text-align: center;
+  margin: 20px 0;
+  color: white;
+}
+
+.spinner {
+  border: 4px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  border-top: 4px solid white;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin: 10px auto;
+}
+
+h2 {
+  text-align: center;
+}
+
+.url-box {
+  word-break: break-word;
+  background: rgba(30, 41, 59, 0.8);
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 15px 0;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  color: #10b981;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.qr-image {
+  display: block;
+  margin: 20px auto;
+  width: 280px;
+  height: 280px;
+  border: 3px solid rgba(245, 158, 11, 0.5);
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  padding: 8px;
+  background: #fff;
+}
+
+/* Success message */
+.success-message {
+  display: none;
+  text-align: center;
+  animation: fadeIn 0.5s ease-out;
+  padding: 30px;
+}
+
+.success-icon {
+  font-size: 60px;
+  color: #4CAF50;
+  margin-bottom: 20px;
+}
+
+/* Rules section styles - completely redesigned */
+.rules-section {
+  background: linear-gradient(145deg, #19233900, #0f172a);
+  border-radius: 10px; /* <-- Sudut kotak biasa */
+  padding: 20px 25px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+}
+
+
+  .rules-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+  }
+
+  .rules-icon {
+    font-size: 24px;
+    margin-right: 15px;
+    color: #ffcc00;
+    background: rgba(255, 204, 0, 0.15);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .rules-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: 0.5px;
+  }
+
+  .rules-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .rules-list li {
+    position: relative;
+    padding: 12px 0 12px 35px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    color: #e0e0e0;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .rules-list li:last-child {
+    border-bottom: none;
+  }
+
+  .rules-list li::before {
+    content: "•";
+    color: #ffcc00;
+    font-size: 22px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
+
+  .rules-note {
+    margin-top: 15px;
+    padding: 12px 15px;
+    background: rgba(255, 204, 0, 0.1);
+    border-radius: 8px;
+    font-size: 14px;
+    color: #ffcc00;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+  }
+
+  .rules-note i {
+    margin-right: 10px;
+    font-size: 18px;
+  }
+
+  .rules-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .rules-accept {
+    background: #ffcc00;
+    color: #1a2a3a;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+  }
+
+  .rules-accept:hover {
+    background: #ffd633;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 204, 0, 0.3);
+  }
+
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .rules-title {
+      font-size: 20px;
+    }
+
+    .rules-list li {
+      font-size: 15px;
+      padding: 10px 0 10px 30px;
+    }
+
+    .rules-icon {
+      font-size: 20px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  /* Optional badge for important rules */
+  .important-badge {
+    display: inline-block;
+    background: rgba(255, 87, 51, 0.9);
+    color: white;
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-left: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .welcome-title {
+    font-size: 24px;
+  }
+
+  .welcome-subtitle {
+    font-size: 16px;
+  }
+}
+  /* Flash effect when selected */
+  @keyframes flashBlue {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(30, 144, 255, 0); }
+    50% { box-shadow: 0 0 30px 5px rgba(30, 144, 255, 0.8); }
+  }
+
+  @keyframes flashPurple {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(147, 112, 219, 0); }
+    50% { box-shadow: 0 0 30px 5px rgba(147, 112, 219, 0.8); }
+  }
+
+  @keyframes flashGold {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+    50% { box-shadow: 0 0 30px 5px rgba(255, 215, 0, 0.8); }
+  }
+
+  /* Rainbow effect for selected cards */
+  .rainbow-side {
+    position: absolute;
+    width: 10px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background: linear-gradient(to bottom, 
+      #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  @keyframes colorMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100px; }
+  }
+
+  .product-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .product-price {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+
+  .feature-emoji {
+    margin-right: 8px;
+    font-size: 16px;
+  }
+
+/* Back button */
+.back-btn {
+  background: rgba(255, 255, 255, 0.171);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 20px;
+  display: flex; /* ganti dari inline-flex ke flex */
+  align-items: center;
+  justify-content: center; /* ini baru bikin teks+icon bener2 ditengah */
+  gap: 6px;
+  transition: background 0.3s ease;
+  text-align: center; /* tambahan untuk teks nya */
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0);
+}
+
+
+  /* Continue button */
+  #continueToPayment {
+    background: linear-gradient(to right, #0055ffd3, #0055ffd3);
+    color: #000000;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    display: block;
+    margin: 20px auto 0;
+  }
+
+  #continueToPayment:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(144, 0, 255, 0.3);
+  }
+
+  /* Different animations for each product */
+  @keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes slideInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes slideInTop {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  /* Awalnya rulesContent disembunyikan pakai height 0 */
+.rules-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+}
+
+/* Saat aktif */
+.rules-content.active {
+  max-height: 1000px; /* cukup besar supaya semua konten bisa muncul */
+  opacity: 1;
+}
+
+/* Button Setuju */
+.rules-accept {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #6a0dad, #9b59b6);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: background 0.3s, transform 0.2s;
+}
+
+.rules-accept:hover {
+  background: linear-gradient(135deg, #9b59b6, #6a0dad);
+  transform: scale(1.05);
+}
+
+/* Tambahkan sedikit animasi pada teks list */
+.rules-list li {
+  animation: fadeIn 0.6s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+  /* Container produk dengan Flexbox */
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+    justify-content: space-between; /* Menjaga jarak antar produk */
+  }
+
+  /* Kartu produk dengan animasi dan styling */
+  .product-card {
+    flex: 1 0 30%; /* Produk akan memiliki lebar 30% dan menyesuaikan */
+    background: linear-gradient(145deg, #192339, #0f172a);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 25px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    transform: translateY(50px);
+    opacity: 0;
+    animation: slideUp 0.6s forwards;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Gradient strip di atas produk */
+  .product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #ff4d4d, #f59e0b, #10b981);
+    opacity: 0.7;
+  }
+
+  /* Animasi produk muncul dari bawah */
+  @keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+  }
+
+  /* Hover effects */
+  .product-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(145deg, #1e293b, #131e32);
+  }
+
+  /* Produk yang terpilih */
+  .product-card.selected {
+    border: 2px solid #f59e0b;
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+    background: linear-gradient(145deg, #1f2937, #151e2d);
+  }
+
+  /* Menambahkan tanda centang pada produk yang terpilih */
+  .product-card.selected::after {
+    content: '✓';
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 25px;
+    height: 25px;
+    background: #f59e0b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #0f172a;
+    font-weight: bold;
+  }
+
+  /* Nama produk */
+  .product-name {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #fff;
+  }
+
+  /* Harga produk */
+  .product-price {
+    font-size: 28px;
+    font-weight: 800;
+    color: #f59e0b;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 6px rgba(245, 158, 11, 0.3);
+    letter-spacing: -0.5px;
+  }
+
+  /* Spesifikasi produk */
+  .product-specs {
+    font-size: 14px;
+    color: #9ca3af;
+  }
+
+  .product-specs div {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+  }
+
+  .product-specs div::before {
+    content: '⚡';
+    margin-right: 8px;
+    color: #f59e0b;
+    font-size: 14px;
+  }
+  .product-section {
+    display: none;
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  /* Responsif untuk layar kecil (max-width: 768px) */
+@media (max-width: 768px) {
+  .products {
+    justify-content: center; /* Membuat produk lebih terpusat */
+  }
+
+  .product-card {
+    flex: 1 0 45%; /* Lebar produk 45% pada tablet */
+    margin-bottom: 20px; /* Memberikan jarak antar produk */
+  }
+}
+
+/* Responsif untuk layar sangat kecil (max-width: 480px) */
+@media (max-width: 480px) {
+  .products {
+    justify-content: center;
+  }
+
+  .product-card {
+    flex: 1 0 90%; /* Lebar produk 90% pada smartphone */
+  }
+}
+
+/*===== ( Style info ) =====*/
+.payment-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.payment-row:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+  /*===== ( Button Konfirmasi Bayaran ) =====*/
+  #startButton {
+    background: linear-gradient(90deg, #1556c5, #1556c5);
+    box-shadow: 0 4px 15px rgba(154, 13, 220, 0.3);
+    color:#000000;
+  }
+
+  /*===== ( Button Cancel Pembayaran ) ====*/
+  #cancelButton {
+    background: linear-gradient(90deg, #1556c5, #1556c5);
+    box-shadow: 0 4px 15px rgba(154, 13, 220, 0.3);
+    color:#000000;
+  }
+
+  /*===== ( Page Garis 3 ) =====*/
+  .hamburger {
+font-size: 30px;
+cursor: pointer;
+position: fixed;
+top: 20px;
+left: 20px;
+z-index: 9999;
+color: #ffffff;
+}
+/* Side Menu */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  border-radius: 16px;
+  background-color: rgba(31, 41, 55, 0.3); /* transparan */
+  backdrop-filter: blur(10px); /* ini buat efek blur di belakang side-menu */
+  color: #f9fafb;
+  padding: 20px;
+  transition: left 0.3s ease;
+  z-index: 9998;
+  box-shadow: 2px 0 10px rgb(0, 0, 0);
+  overflow-y: auto;
+}
+
+/* Tombol Hamburger */
+.hamburger {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
+  cursor: pointer;
+  width: 30px;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger div {
+  width: 100%;
+  height: 4px;
+  background-color: #ffffff;
+  border-radius: 2px;
+}
+
+/* Isi Side Menu */
+.side-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 50px;
+}
+
+.side-menu ul li {
+  margin: 20px 0;
+}
+
+.side-menu ul li a {
+  color: #f9fafb;
+  text-decoration: none;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.side-menu ul li a:hover {
+  color: #3b82f6;
+}
+
+/* Show Menu */
+.side-menu.active {
+  left: 0;
+}
+
+.close-btn {
+position: absolute;
+top: 15px;
+right: 15px;
+background: none;
+border: none;
+font-size: 26px;
+color: #f9fafb;
+cursor: pointer;
+}
